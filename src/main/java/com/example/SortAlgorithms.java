@@ -2,6 +2,22 @@ package com.example;
 
 import java.util.Arrays;
 
+/**
+ * 八大排序算法实现
+ *
+ * 1. 直接插入排序  {@link #insertionSort}
+ * 2. 希尔排序      {@link #shellSort}
+ * 3. 简单选择排序  {@link #selectionSort}
+ * 4. 堆排序        {@link #heapSort}
+ * 5. 冒泡排序      {@link #bubbleSort}
+ * 6. 快速排序      {@link #quickSort}
+ * 7. 归并排序      {@link #mergingSort}
+ * 8. 基数排序      {@link #radixSort}
+ *
+ * 算法测试类见 {@link Test}
+ * 算法评估分析类见 {@link Bench}
+ *
+ */
 class SortAlgorithms {
     public static final boolean ENABLE_PRINT = true;
 
