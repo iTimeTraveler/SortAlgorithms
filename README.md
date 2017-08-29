@@ -760,7 +760,7 @@ public static void radixSort(int[] arr){
     System.out.println("maxDigit: " + maxDigit);
 
     //申请一个桶空间
-    int[][] buckets = new int[10][arr.length-1];
+    int[][] buckets = new int[10][arr.length];
     int base = 10;
 
     //从低位到高位，对每一位遍历，将所有元素分配到桶中
