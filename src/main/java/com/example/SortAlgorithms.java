@@ -19,7 +19,7 @@ import java.util.Arrays;
  *
  */
 class SortAlgorithms {
-    public static final boolean ENABLE_PRINT = true;
+    public static final boolean ENABLE_PRINT = false;
 
     public static void main(String[] args) {
 //        int[] array = new int[]{3,5,3,0,8,6,1,5,8,6,2,4,9,4,7,0,1,8,9,7,3,1,2,5,9,7,4,0,2,6};
@@ -319,7 +319,7 @@ class SortAlgorithms {
         System_out_println("maxDigit: " + maxDigit);
 
         //申请一个桶空间
-        int[][] buckets = new int[10][arr.length-1];
+        int[][] buckets = new int[10][arr.length];
         int base = 10;
 
         //从低位到高位，对每一位遍历，将所有元素分配到桶中

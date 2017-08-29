@@ -106,6 +106,13 @@ public class Bench {
         }
     };
 
+    public static Function<int[], int[]> radixSort = new Function<int[], int[]>() {
+        @Override public int[] apply(int[] array) {
+            SortAlgorithms.radixSort(array);
+            return array;
+        }
+    };
+
     // Execute an algorithm on an input and return its runtime.
     private static String execute(Function<int[], int[]> algorithm, int[] input) {
         // To get accurate results even for small inputs, we repeat
@@ -208,7 +215,8 @@ public class Bench {
             "Heap sort      | %14s | %14s | %14s\n" +
             "Bubble sort    | %14s | %14s | %14s\n" +
             "Quicksort      | %14s | %14s | %14s\n" +
-            "Merge sort     | %14s | %14s | %14s\n",
+            "Merge sort     | %14s | %14s | %14s\n" +
+            "Radix sort     | %14s | %14s | %14s\n",
             size,
             "Random", "95% sorted", "Sorted",
             execute(insertionSort, randomSample),
@@ -237,7 +245,11 @@ public class Bench {
 
             execute(mergeSort,  randomSample),
             execute(mergeSort,  partiallySortedSample),
-            execute(mergeSort,  sortedSample)
+            execute(mergeSort,  sortedSample),
+
+            execute(radixSort,  randomSample),
+            execute(radixSort,  partiallySortedSample),
+            execute(radixSort,  sortedSample)
         ));
     }
 }

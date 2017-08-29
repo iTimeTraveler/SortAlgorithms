@@ -8,7 +8,15 @@ import java.util.*;
 public class Test {
     private static Bench.Function<int[], int[]> algorithm =
         // Change to Bench.quickSort or Bench.mergeSort as appropriate.
-        Bench.shellSort;        // 需要测试的排序算法
+        Bench.insertionSort; //直接插入排序        // 需要测试的排序算法
+//        Bench.shellSort;	 //希尔排序
+//        Bench.selectionSort; //简单选择排序
+//        Bench.heapSort;		 //堆排序
+//        Bench.bubbleSort;	 //冒泡排序
+//        Bench.quickSort;	 //快速排序
+//        Bench.mergeSort;	 //归并排序
+//        Bench.radixSort;	 //基数排序
+
 
     private static boolean check(int[] array) {
         int[] reference = Arrays.copyOf(array, array.length);
