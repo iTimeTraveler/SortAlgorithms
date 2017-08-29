@@ -68,3 +68,15 @@
 | Merge sort     | 5822.908516ms | 355.370353ms |  0.001390ms |
 | Radix sort     |    0.097762ms |   0.097361ms |  0.126791ms |
 
+### Arrays of length 3000
+
+| Algorithm      |         Random |     95% sorted |         Sorted |
+| :--            |           ---: |           ---: |           ---: |
+| Insertion sort | 171271.760752ms | 11119.063850ms |     0.004004ms |
+| Shell sort     | 116029.883053ms |  8348.448500ms |   502.211498ms |
+| Selection sort |   229.224797ms |   203.127196ms |    11.105693ms |
+| Heap sort      |   235.891323ms |   230.794397ms |   228.503595ms |
+| Bubble sort    | 177897.584737ms | 11223.376504ms |     3.845661ms |
+| Quicksort      |   151.487124ms |   162.464997ms |   217.498977ms |
+| Merge sort     | 171893.042008ms | 11281.756808ms |     0.004078ms |
+| Radix sort     |     0.427945ms |     0.416584ms |     0.417483ms |
