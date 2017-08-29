@@ -206,19 +206,21 @@ public class Bench {
         int[] randomSample = generateSample(size, 100);
 
         System.out.println(String.format(
-            "Arrays of length %d\n" +
+            "### Arrays of length %d\n" +
             "=================================================================\n" +
-            "Algorithm      | %14s | %14s | %14s\n" +
-            "Insertion sort | %14s | %14s | %14s\n" +
-            "Shell sort     | %14s | %14s | %14s\n" +
-            "Selection sort | %14s | %14s | %14s\n" +
-            "Heap sort      | %14s | %14s | %14s\n" +
-            "Bubble sort    | %14s | %14s | %14s\n" +
-            "Quicksort      | %14s | %14s | %14s\n" +
-            "Merge sort     | %14s | %14s | %14s\n" +
-            "Radix sort     | %14s | %14s | %14s\n",
+            "| Algorithm      | %14s | %14s | %14s |\n" +
+            "| %3s            | %14s | %14s | %14s |\n" +
+            "| Insertion sort | %14s | %14s | %14s |\n" +
+            "| Shell sort     | %14s | %14s | %14s |\n" +
+            "| Selection sort | %14s | %14s | %14s |\n" +
+            "| Heap sort      | %14s | %14s | %14s |\n" +
+            "| Bubble sort    | %14s | %14s | %14s |\n" +
+            "| Quicksort      | %14s | %14s | %14s |\n" +
+            "| Merge sort     | %14s | %14s | %14s |\n" +
+            "| Radix sort     | %14s | %14s | %14s |\n",
             size,
             "Random", "95% sorted", "Sorted",
+            ":--", "---:", "---:", "---:",
             execute(insertionSort, randomSample),
             execute(insertionSort, partiallySortedSample),
             execute(insertionSort, sortedSample),
