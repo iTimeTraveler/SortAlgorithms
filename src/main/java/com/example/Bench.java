@@ -187,7 +187,7 @@ public class Bench {
         int[] reference = Arrays.copyOf(input, input.length);
         Arrays.sort(reference);
         if (Arrays.equals(result, reference)) {
-            return String.format("%6f", (double)runtime / ((long)repetitions * 1000000));
+            return String.format("%6f", (double)runtime / ((long)repetitions * 1000000)) + "ms";
         } else {
             return "INCORRECT";
         }
