@@ -84,16 +84,16 @@ class SortAlgorithms {
      */
     public static void shellSort(int[] arr){
         int gap = arr.length / 2;
-        System_out_println("Gap=" + gap);
         for (; gap > 0; gap /= 2) {      //不断缩小gap，直到1为止
-            for (int j = 0; (j+gap) < arr.length; j++){     //使用每个gap进行遍历
-                for(int k = 0; (k+gap) < arr.length; k += gap){
-                    System_out_println("k=" + k + ", k+gap:  " + (k+gap));
+            System_out_println("Gap=" + gap);
+            for (int j = gap; j < arr.length; j++){     //使用当前gap挨个进行遍历
+                for(int k = j-gap; k >= 0; k -= gap){   //两两一组，间隔进行比较
+                    System_out_println("Compare： k=" + k + ", k+gap=" + (k+gap));
                     if(arr[k] > arr[k+gap]){
                         int temp = arr[k+gap];      //交换操作
                         arr[k+gap] = arr[k];
                         arr[k] = temp;
-                        System_out_println("Gap=" + gap + ", Sorting:  " + Arrays.toString(arr));
+                        System_out_println("    Sorting:  " + Arrays.toString(arr));
                     }
                 }
             }
