@@ -23,7 +23,9 @@
 
 <!-- more -->
 
-其中我们讨论的这八大排序算法的实现可以参考[我的Github：**SortAlgorithms**](https://github.com/iTimeTraveler/SortAlgorithms)，它们都属于内部排序，也就是只考虑数据量较小仅需要使用内存的排序算法，他们之间关系如下：
+其中我们讨论的这八大排序算法的实现可以参考[我的Github：**SortAlgorithms**](https://github.com/iTimeTraveler/SortAlgorithms)，其中包括了排序测试模块[[Test.java]](https://github.com/iTimeTraveler/SortAlgorithms/blob/master/src/main/java/com/example/Test.java)和排序算法对比模块[[Bench.java]](https://github.com/iTimeTraveler/SortAlgorithms/blob/master/src/main/java/com/example/Bench.java)，大家可以试运行。
+
+它们都属于内部排序，也就是只考虑数据量较小仅需要使用内存的排序算法，他们之间关系如下：
 
 
 
