@@ -203,8 +203,8 @@ class SortAlgorithms {
      * @param arr  待排序数组
      */
     public static void bubbleSort(int[] arr){
-        for (int i = arr.length; i > 0; i--) {      //外层循环移动游标
-            for(int j = 0; j < i && (j+1) < i; j++){    //内层循环遍历游标及之后(或之前)的元素
+        for (int i = arr.length - 1; i > 0; i--) {      //外层循环移动游标
+            for(int j = 0; j < i; j++){    //内层循环遍历游标及之后(或之前)的元素
                 if(arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
