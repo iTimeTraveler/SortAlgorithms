@@ -19,7 +19,7 @@ import java.util.Stack;
  * 算法评估分析类见 {@link Bench}
  *
  */
-class SortAlgorithms {
+public class SortAlgorithms {
     public static final boolean ENABLE_PRINT = false;
 
     public static void main(String[] args) {
