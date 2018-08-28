@@ -62,42 +62,66 @@
 
 ![直接插入排序演示](https://itimetraveler.github.io/gallery/sort-algorithms/insert-sort.gif)
 
-如果*比较操作*的代价比*交换操作*大的话，可以采用[二分查找法](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95)来减少*比较操作*的数目。该算法可以认为是**插入排序**的一个变种，称为[二分查找插入排序](https://zh.wikipedia.org/w/index.php?title=%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F&action=edit&redlink=1)。
+算法实现中比较有意思的一点是，在每次比较操作发现取出来的新元素小于等于已排序的元素时，可以将已排序的元素移到下一位置，然后将取出来的新元素插入该位置（即相邻位置对调），接着再与前面的已排序的元素进行比较，如上图所示，这样做缺点是交换操作代价比较大。另一种做法是：将新元素取出（挖坑），从左到右依次与已排序的元素比较，如果已排序的元素大于取出的新元素，那么将该元素移动到下一个位置（填坑），接着再与前面的已排序的元素比较，直到找到已排序的元素小于等于新元素的位置，这时再将新元素插入进去。就像基本思想中的动图演示的那样。
+
+如果*比较操作*的代价比*交换操作*大的话，可以采用[二分查找法](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B3%95)来减少*比较操作*的数目。可以认为是**插入排序**的一个变种，称为[二分查找插入排序](https://zh.wikipedia.org/w/index.php?title=%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F&action=edit&redlink=1)。
 
 #### 3、代码实现
 
 ```java
-    /**
-     * 插入排序
-     *
-     * 1. 从第一个元素开始，该元素可以认为已经被排序
-     * 2. 取出下一个元素，在已经排序的元素序列中从后向前扫描
-     * 3. 如果该元素（已排序）大于新元素，将该元素移到下一位置
-     * 4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
-     * 5. 将新元素插入到该位置后
-     * 6. 重复步骤2~5
-     * @param arr  待排序数组
-     */
-    public static void insertionSort(int[] arr){
-        for( int i=0; i<arr.length-1; i++ ) {
-            for( int j=i+1; j>0; j-- ) {
-                if( arr[j-1] <= arr[j] )
-                    break;
-                int temp = arr[j];      //交换操作
-                arr[j] = arr[j-1];
-                arr[j-1] = temp;
+/**
+ * 插入排序
+ *
+ * 1. 从第一个元素开始，该元素可以认为已经被排序
+ * 2. 取出下一个元素，在已经排序的元素序列中从后向前扫描
+ * 3. 如果该元素（已排序）大于新元素，将该元素移到下一位置
+ * 4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
+ * 5. 将新元素插入到该位置后
+ * 6. 重复步骤2~5
+ * @param arr  待排序数组
+ */
+public static void insertionSort(int[] arr){
+    for( int i = 1; i < arr.length; i++ ) {
+        int temp = arr[i];    // 取出下一个元素，在已经排序的元素序列中从后向前扫描
+        for( int j = i; j >= 0; j-- ) {
+            if( j > 0 && arr[j-1] > temp ) {
+                arr[j] = arr[j-1];    // 如果该元素（已排序）大于取出的元素temp，将该元素移到下一位置
+                System.out.println("Temping:  " + Arrays.toString(arr));
+            } else {
+                // 将新元素插入到该位置后
+                arr[j] = temp;
                 System.out.println("Sorting:  " + Arrays.toString(arr));
+                break;
             }
         }
     }
+}
+
+// 交换次数较多的实现
+public static void insertionSort(int[] arr){
+    for( int i=0; i<arr.length-1; i++ ) {
+        for( int j=i+1; j>0; j-- ) {
+            if( arr[j-1] <= arr[j] )
+                break;
+            int temp = arr[j];      //交换操作
+            arr[j] = arr[j-1];
+            arr[j-1] = temp;
+            System.out.println("Sorting:  " + Arrays.toString(arr));
+        }
+    }
+}
 ```
 
 直接插入排序复杂度如下：
 
+- 最好情况下，排序前对象已经按照要求的有序。比较次数(KCN)：n−1；移动次数(RMN)为0。则对应的时间复杂度为O(n)。
+- 最坏情况下，排序前对象为要求的顺序的反序。第i趟时第i个对象必须与前面i个对象都做排序码比较，并且每做1次比较就要做1次数据移动（从上面给出的代码中看出）。比较次数(KCN)：n²/2 ; 移动次数(RMN)为：n²/2。则对应的时间复杂度为O(n²)。
+- 如果排序记录是随机的，那么根据概率相同的原则，在平均情况下的排序码比较次数和对象移动次数约为n²/2，因此，**直接插入排序的平均时间复杂度**为O(n²)。
+
 
 | 平均时间复杂度 | 最好情况  | 最坏情况  | 空间复杂度 |
 | ------- | ----- | ----- | ----- |
-| O(n²)   | O(n²) | O(n²) | O(1)  |
+| O(n²)   | O(n) | O(n²) | O(1)  |
 
 Tips: 由于直接插入排序每次只移动一个元素的位， 并不会改变值相同的元素之间的排序， 因此它是一种稳定排序。
 
